@@ -6,8 +6,6 @@ app.get("/", (req, res) => {
   res.json({ message: "Hola Edison desde Node.js con Docker y CI!" });
 });
 
-//app get traer el resultado de una suma
-
 app.get("/sum", (req, res) => {
   const a = parseFloat(req.query.a) || 0;
   const b = parseFloat(req.query.b) || 0;
@@ -15,6 +13,11 @@ app.get("/sum", (req, res) => {
   res.json({ result: sum });
 });
 
-export default app;
+// solo iniciar el servidor si el archivo se ejecuta directamente
+if (process.env.NODE_ENV !== "test") {
+  app.listen(port, () =>
+    console.log(`Servidor corriendo en el puerto: ${port}`)
+  );
+}
 
-app.listen(port, () => console.log(`Servidor corriendo en el puerto: ${port}`));
+export default app;
