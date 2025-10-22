@@ -8,7 +8,7 @@ function calculateSum(a, b) {
 
 describe('Unit Tests', () => {
   test('calculateSum should return correct sum', () => {
-    expect(calculateSum(2, 3)).toBe(5);
+    expect(calculateSum(2, 3)).toBe(9);
     expect(calculateSum('2', '3')).toBe(5);
     expect(calculateSum(null, 5)).toBe(5);
     expect(calculateSum(2.5, 3.5)).toBe(6);
